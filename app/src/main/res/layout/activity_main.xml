@@ -1,25 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.os.operando.asynclayoutinflater.sample.MainActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.os.operando.asynclayoutinflater.sample.MainActivity">
 
-    <Button
-        android:id="@+id/sync"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sync" />
-</LinearLayout>
+        <LinearLayout
+            android:id="@+id/root_group_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <Button
+                android:id="@+id/sync_fat_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sync LayoutInflater + Fat Layout" />
+
+            <Button
+                android:id="@+id/sync_add_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sync LayoutInflater + Add View" />
+
+            <Button
+                android:id="@+id/async"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Async LayoutInflater" />
+
+            <Button
+                android:id="@+id/async_fat_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Async LayoutInflater + Fat Layout" />
+
+            <Button
+                android:id="@+id/async_app_compat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Async LayoutInflater + App Compat" />
+
+            <Button
+                android:id="@+id/async_merge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Async LayoutInflater(merge)" />
+
+            <blink
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
