@@ -51,7 +51,7 @@
                 android:id="@+id/async_merge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Async LayoutInflater(merge)" />
+                android:text="Async LayoutInflater + merge tag" />
 
             <blink
                 android:layout_width="20dp"
