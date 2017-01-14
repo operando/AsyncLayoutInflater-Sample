@@ -53,9 +53,11 @@
                 android:layout_height="wrap_content"
                 android:text="Async LayoutInflater + merge tag" />
 
-            <blink
-                android:layout_width="20dp"
-                android:layout_height="20dp" />
+            <Button
+                android:id="@+id/async_include"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Async LayoutInflater + include tag" />
         </LinearLayout>
     </ScrollView>
 </layout>

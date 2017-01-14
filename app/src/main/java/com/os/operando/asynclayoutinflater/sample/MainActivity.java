@@ -18,19 +18,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        binding.asyncAppCompat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AsyncLayoutInflater asyncLayoutInflater = new AsyncLayoutInflater(MainActivity.this);
-                asyncLayoutInflater.inflate(R.layout.view_app_compat, binding.rootGroupView, new AsyncLayoutInflater.OnInflateFinishedListener() {
-                    @Override
-                    public void onInflateFinished(View view, int resid, ViewGroup parent) {
-                        parent.addView(view);
-                    }
-                });
-            }
-        });
-
         binding.syncFatLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,11 +64,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.asyncAppCompat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AsyncLayoutInflater asyncLayoutInflater = new AsyncLayoutInflater(MainActivity.this);
+                asyncLayoutInflater.inflate(R.layout.view_app_compat, binding.rootGroupView, new AsyncLayoutInflater.OnInflateFinishedListener() {
+                    @Override
+                    public void onInflateFinished(View view, int resid, ViewGroup parent) {
+                        parent.addView(view);
+                    }
+                });
+            }
+        });
+
         binding.asyncMerge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AsyncLayoutInflater asyncLayoutInflater = new AsyncLayoutInflater(MainActivity.this);
                 asyncLayoutInflater.inflate(R.layout.view_merge_test, null, new AsyncLayoutInflater.OnInflateFinishedListener() {
+                    @Override
+                    public void onInflateFinished(View view, int resid, ViewGroup parent) {
+                        binding.rootGroupView.addView(view);
+                    }
+                });
+            }
+        });
+
+        binding.asyncInclude.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AsyncLayoutInflater asyncLayoutInflater = new AsyncLayoutInflater(MainActivity.this);
+                asyncLayoutInflater.inflate(R.layout.view_includet, null, new AsyncLayoutInflater.OnInflateFinishedListener() {
                     @Override
                     public void onInflateFinished(View view, int resid, ViewGroup parent) {
                         binding.rootGroupView.addView(view);
